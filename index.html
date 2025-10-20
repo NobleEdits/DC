@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF‑8">
+  <title>NOBLE EDITS — Professional Editing & Post‑Production</title>
+  <meta name="viewport" content="width=device‑width, initial‑scale=1">
+  <style>
+    body {
+      margin:0;
+      font‑family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans‑serif;
+      color:#222;
+      line‑height:1.6;
+      background:#f9f9f9;
+    }
+    a {
+      color: #0056b3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      position: fixed;
+      width:100%;
+      top:0;
+      left:0;
+      background: #fff;
+      border‑bottom:1px solid #eee;
+      z‑index:1000;
+    }
+    header .nav-container {
+      max‑width: 1200px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      justify‑space-between: space-between;
+      align‑items:center;
+    }
+    header nav a {
+      margin: 0 15px;
+      font‑weight:500;
+    }
+    .hero {
+      position: relative;
+      width:100%;
+      height:80vh;
+      overflow:hidden;
+      display:flex;
+      align‑items:center;
+      justify‑content:center;
+      text‑align:center;
+      color:white;
+      margin‑top:60px; /* account for fixed header */
+    }
+    .hero img {
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      object‑fit:cover;
+      opacity:0;
+      transition: opacity 1s ease‑in‑out;
+    }
+    .hero img.active {
+      opacity:1;
+    }
+    .hero .overlay {
+      position: relative;
+      z‑index:2;
+      padding:0 20px;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.45);
+      z‑index:1;
+    }
+    h1 {
+      margin:0;
+      font-size:3.2rem;
+      letter‑spacing:1px;
+    }
+    p.subtitle {
+      font-size:1.25rem;
+      margin:10px 0 0;
+      max‑width:600px;
+      margin‑left:auto;
+      margin‑right:auto;
+    }
+    .container {
+      max‑width:1100px;
+      margin:50px auto;
+      padding:0 20px;
+      background:#fff;
+    }
+    section {
+      margin‑bottom:80px;
+    }
+    h2 {
+      font-size:2rem;
+      margin‑bottom:20px;
+      border‑bottom:2px solid #eee;
+      padding‑bottom:10px;
+    }
+    .services‑list {
+      display:grid;
+      grid‑template‑columns:repeat(auto‑fit, minmax(260px,1fr));
+      gap:30px;
+    }
+    .service {
+      background:#fafafa;
+      padding:20px;
+      border:1px solid #eaeaea;
+      border‑radius:6px;
+    }
+    .team {
+      display:flex;
+      flex‑wrap:wrap;
+      gap:40px;
+      align‑items:center;
+    }
+    .team .member {
+      flex:1 1 300px;
+      text‑align:center;
+    }
+    .team .member img {
+      width:180px;
+      height:180px;
+      border‑radius:50%;
+      object‑fit:cover;
+      margin-bottom:15px;
+      border:4px solid #0056b3;
+    }
+    .portfolio‑grid {
+      display:grid;
+      grid‑template‑columns:repeat(auto‑fit, minmax(280px,1fr));
+      gap:20px;
+    }
+    .portfolio‑grid .project {
+      position: relative;
+      overflow:hidden;
+      border‑radius:6px;
+      box‑shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .portfolio‑grid .project img {
+      width:100%;
+      display:block;
+      transition: transform 0.3s ease;
+    }
+    .portfolio‑grid .project:hover img {
+      transform: scale(1.03);
+    }
+    .portfolio‑grid .project .caption {
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:rgba(0,0,0,0.6);
+      color:#fff;
+      padding:12px 15px;
+      box‑sizing:border-box;
+      opacity:0;
+      transition: opacity 0.3s ease;
+    }
+    .portfolio‑grid .project:hover .caption {
+      opacity:1;
+    }
+    form label {
+      display:block;
+      margin:15px 0 5px;
+    }
+    form input, form textarea {
+      width:100%;
+      padding:12px;
+      font‑size:1rem;
+      border:1px solid #ccc;
+      border‑radius:4px;
+      box‑sizing:border‑box;
+    }
+    form button {
+      margin-top:20px;
+      padding:15px;
+      font-size:1rem;
+      border:none;
+      background:#0056b3;
+      color:white;
+      border‑radius:4px;
+      cursor:pointer;
+    }
+    form button:hover {
+      background:#003f80;
+    }
+    footer {
+      text‑align:center;
+      padding:40px 20px;
+      color:#777;
+      font‑size:0.9rem;
+      background:#f5f5f5;
+      border‑top:1px solid #eee;
+    }
+    @media (max‑width:600px) {
+      h1 { font-size:2.4rem; }
+      .hero { height:60vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo"><strong>NOBLE EDITS</strong></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <!-- Your portfolio hero image + free stock images -->
+    <img src="https://i.postimg.cc/C5T8Lz8n/Gig‑Image.png" class="active" alt="NOBLE EDITS Portfolio Hero">
+    <img src="https://images.pexels.com/photos/4145190/pexels‑photo‑4145190.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Professional Editing Setup">
+    <img src="https://images.pexels.com/photos/546819/pexels‑photo‑546819.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Modern Editing Desk">
+    <img src="https://source.unsplash.com/1600x900/?video‑editing,studio" alt="Video Editing Studio">
+    <div class="overlay">
+      <h1>NOBLE EDITS</h1>
+      <p class="subtitle">Turning your raw footage into compelling narratives. Professional video & photo editing, motion graphics, colour grading and creative post‑production services tailored to your vision.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2>About NOBLE EDITS</h2>
+      <p>At <strong>NOBLE EDITS</strong>, we believe every story deserves to be told beautifully. Whether you’re a brand, creator or individual with a vision, we deliver polished, high‑end editing services that elevate your content. With extensive experience in video editing, photo editing, motion graphics and colour grading, we operate using industry‑standard tools such as Adobe Premiere Pro, After Effects and DaVinci Resolve.</p>
+      <p>Our process is simple, transparent and client‑focused. You bring the footage and your concept, we handle the editing, review rounds and final delivery, ensuring your message lands the way you intend — whether it’s for social media, commercial use or a personal project.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services‑list">
+        <div class="service">
+          <h3>Video Editing</h3>
+          <p>Slicing, organising and refining your footage into a smooth, dynamic final cut. Includes sound clean‑up, basic colour correction and subtle motion graphics when needed.</p>
+        </div>
+        <div class="service">
+          <h3>Photo & Image Editing</h3>
+          <p>Retouching, colour grading, composites and optimising visuals for print, web or social—making your images pop while maintaining authenticity.</p>
+        </div>
+        <div class="service">
+          <h3>Motion Graphics & Titles</h3>
+          <p>Animated intros/outros, typography, dynamic transitions and graphic overlays that enhance your story and hold attention.</p>
+        </div>
+        <div class="service">
+          <h3>Colour Grading & Finishing</h3>
+          <p>Advanced colour correction and grading workflows to give your project a cinematic look and consistent tone from beginning to end.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h2>Portfolio Highlights</h2>
+      <p>Here is a curated selection of recent projects that demonstrate our craftsmanship and versatility. Hover over each item for a brief description & click to view more details.</p>
+      <div class="portfolio‑grid">
+        <div class="project">
+          <img src="https://images.pexels.com/photos/5775859/pexels‑photo‑5775859.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Project 1">
+          <div class="caption">Corporate Promo – Client: XYZ Brand</div>
+        </div>
+        <div class="project">
+          <img src="https://images.pexels.com/photos/4145190/pexels‑photo‑4145190.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Project 2">
+          <div class="caption">YouTube Creator Series – 10 Episodes</div>
+        </div>
+        <div class="project">
+          <img src="https://images.pexels.com/photos/546819/pexels‑photo‑546819.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Project 3">
+          <div class="caption">Wedding Highlight Reel – 5 min</div>
+        </div>
+        <div class="project">
+          <img src="https://source.unsplash.com/600x400/?motion‑graphics,studio" alt="Project 4">
+          <div class="caption">Motion Graphics Explainer – Tech Startup</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+      <h2>Meet the Team</h2>
+      <div class="team">
+        <div class="member">
+          <img src="https://i.postimg.cc/5tm7dWFc/profile‑Image.png" alt="Your Name">
+          <h3>Your Name</h3>
+          <p>Lead Editor & Founder</p>
+          <p>With over X years in the industry, I’ve crafted content for brands, creators and individuals. My mission: to make your story look its best.</p>
+        </div>
+        <!-- If you have more team members, replicate the .member block -->
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>Ready to bring your vision to life? Tell us about your project — the duration, style, deadline, and any references you have. We’ll respond promptly with a customised quote.</p>
+      <form action="https://formspree.io/f/mwprzgwv" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="project‑details">Project Details & Message</label>
+        <textarea id="project‑details" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 NOBLE EDITS. All rights reserved.
+  </footer>
+
+  <script>
+    // Image rotation logic for hero section
+    const imgs = document.querySelectorAll('.hero img');
+    let idx = 0;
+    setInterval(() => {
+      imgs[idx].classList.remove('active');
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].classList.add('active');
+    }, 10000); // every 10 seconds
+  </script>
+
+</body>
+</html>
